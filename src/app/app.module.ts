@@ -4,12 +4,16 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { SectionBoxComponent } from './section-box/section-box.component';
+import { RowComponent } from './row/row.component';
+import { CardsComponent } from './cards/cards.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    SectionBoxComponent
+    SectionBoxComponent,
+    RowComponent,
+    CardsComponent
   ],
   imports: [
     BrowserModule,

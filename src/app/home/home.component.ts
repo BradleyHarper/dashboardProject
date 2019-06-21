@@ -9,9 +9,7 @@ import { CdkDragDrop, moveItemInArray, transferArrayItem, DragDrop } from '@angu
 export class HomeComponent implements OnInit {
 
   cards = [
-    'Section',
-    'Row',
-    'Datacard'
+    'section'
   ];
 
   row = [];
@@ -22,12 +20,16 @@ export class HomeComponent implements OnInit {
   }
 
   drop(event: CdkDragDrop<string[]>){
-    var test = document.getElementsByClassName("cdk-drop-list-receiving");
-    if(test){
-      document.getElementById("sectionCards").style.backgroundColor = "black";
-    }else{
-      console.log("nope", event);
-    }
+    // var test = document.getElementsByClassName("cdk-drop-list-receiving");
+    // if(test){
+    //   document.getElementById("sectionCards").style.backgroundColor = "black";
+    // }else{
+    //   console.log("nope", event);
+    // }
+    // if(cards == "Row" || "Datacard"){
+    //  return false;
+    // }
+
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
