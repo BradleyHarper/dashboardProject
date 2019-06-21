@@ -1,0 +1,18 @@
+<div id="componentsColumn">
+  <div id="componentBoxes" cdkDropList #cardlist="cdkDropList" [cdkDropListData]='cards'
+    [cdkDropListConnectedTo]='[rowlist]' (cdkDropListDropped)='drop($event)'>
+    <div class="example-box" cdkDrag *ngFor="let item of cards">
+      {{ item }}
+    </div>
+  </div>
+</div>
+<div id="display">
+  <div id="sectionCards" cdkDropList #rowlist="cdkDropList" [cdkDropListData]='row'
+    [cdkDropListConnectedTo]='[cardlist]' (cdkDropListDropped)='drop($event)'>
+    <div id="sectionColumn">
+      <div class="example-box" cdkDrag >
+        <app-section-box></app-section-box>
+      </div>
+    </div>
+  </div>
+</div>

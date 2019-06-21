@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css?family=Old+Standard+TT&display=swap');
+.example-box {
+    font-family: 'Old Standard TT', serif;
+    width: 12vw;
+    height: 100px;
+    margin: 2px;
+    border: solid 1px #ccc;
+    cursor: grab;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: #fff;
+    border-radius: 4px;
+    position: relative;
+    z-index: 1;
+    transition: box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
+                0 2px 2px 0 rgba(0, 0, 0, 0.14),
+                0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+.example-box:active{
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+                0 8px 10px 1px rgba(0, 0, 0, 0.14),
+                0 3px 14px 2px rgba(0, 0, 0, 0.12);
+    background-color: rgb(226, 248, 255);
+    cursor: grabbing;
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+#componentBoxes{
+    background-color:#45a29e;;
+    width: 12vw;
+    float: right;
+    height: 80vh;
+    padding: 10px;
+}
+#componentBoxes>.example-box{
+    margin-bottom: 8px;
+}
+#display{
+  padding: 10px;
+  width: 83vw;
+  height: 80vh;
+  background: #66fcf1;
+}
+#display, #componentBoxes{ /*effects styling of the drag and drop boxes*/
+  color: #1f2833;
+}
+#display>h1{
+    margin: 0;
+    margin-left: 17.5px;
+    padding: 5px;
+    background-color: whitesmoke;
+}
+#sectionCards{
+  background: url("https://c7.alamy.com/comp/DH3TN5/old-lead-letters-forming-the-word-section-DH3TN5.jpg");
+  height: 600px;
+}
+#sectionColumn{
+  display: flex;
+  justify-content: space-around;
+  min-height: 10vh;
+}
