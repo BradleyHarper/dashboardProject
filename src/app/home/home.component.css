@@ -1,7 +1,4 @@
 @import url('https://fonts.googleapis.com/css?family=Old+Standard+TT&display=swap');
-
-app-section-box{
-}
 .example-box {
     font-family: 'Old Standard TT', serif;
     border: solid 1px rgba(204, 204, 204, 0.459);
@@ -37,7 +34,6 @@ color: rgba(255, 255, 255, 0.322)
     background-color:#45a29e;;
     width: 12vw;
     float: right;
-    height: 80vh;
     padding: 10px;
 }
 #componentBoxes>.example-box{
@@ -46,8 +42,8 @@ color: rgba(255, 255, 255, 0.322)
 #display{
   padding: 10px;
   width: 83vw;
-  height: 80vh;
   background: #66fcf1;
+  min-height: 90vh
 }
 #display, #componentBoxes{ /*effects styling of the drag and drop boxes*/
   color: #1f2833;
@@ -59,9 +55,9 @@ color: rgba(255, 255, 255, 0.322)
     background-color: whitesmoke;
 }
 #sectionCards{
-  /* background: url("https://c7.alamy.com/comp/DH3TN5/old-lead-letters-forming-the-word-section-DH3TN5.jpg"); */
-  height: 600px;
-  padding-top:2px;
+background-color: lightblue;
+min-height: 80vh;
+padding-top:2px;
 }
 #sectionColumn{
   display: flex;
