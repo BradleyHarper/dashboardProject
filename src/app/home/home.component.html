@@ -1,15 +1,46 @@
 <div id="componentsColumn">
-  <div id="componentBoxes" cdkDropList #cardlist="cdkDropList" [cdkDropListData]='cards'
-    [cdkDropListConnectedTo]='[rowlist]' (cdkDropListDropped)='drop($event)'>
+  <div id="componentBoxes" cdkDropList #sectionCard="cdkDropList" [cdkDropListData]='sectionItem'
+    [cdkDropListConnectedTo]='[sectionListItem]' (cdkDropListDropped)='drop($event)'>
+    <div class="example-box" cdkDrag >
+      <h3>{{sectionItem}}</h3>
+    </div>
+  </div>
+   <div id="componentBoxes" cdkDropList #cardlist="cdkDropList" [cdkDropListData]='rowItem'
+    [cdkDropListConnectedTo]='[rowlistItem]' (cdkDropListDropped)='drop($event)'>
+    <div class="example-box" cdkDrag >
+      <h3>{{rowItem}}</h3>
+    </div>
+  </div>
+  <div id="componentBoxes" cdkDropList #cardlist="cdkDropList" [cdkDropListData]='cardItem'
+    [cdkDropListConnectedTo]='[cardListItem]' (cdkDropListDropped)='drop($event)'>
+    <div class="example-box" cdkDrag >
+      <h3>{{cardItem}}</h3>
+    </div>
+  </div>
+
+
+  <!-- <div id="rowInSection" cdkDropList #inComponentBoxes="cdkDropList" [cdkDropListData]='rowIns'
+    [cdkDropListConnectedTo]='[inSectionBox]' (cdkDropListDropped)='drop($event)'>
     <div class="example-box" cdkDrag *ngFor="let item of cards">
       <h3>{{item}}</h3>
     </div>
   </div>
+  <div id="rowInSection" cdkDropList #inSectionBox="cdkDropList" [cdkDropListData]='cards'
+    [cdkDropListConnectedTo]='[inComponentBoxes]' (cdkDropListDropped)='drop($event)'>
+    <div class="example-box" cdkDrag *ngFor="let item of cards">
+      <h3>{{item}}</h3>
+    </div>
+  </div> -->
 </div>
 <div id="display">
-  <div id="sectionCards" cdkDropList #rowlist="cdkDropList" [cdkDropListData]='row'
-    [cdkDropListConnectedTo]='[cardlist]' (cdkDropListDropped)='drop($event)'>
-    <div class="example-box" cdkDrag *ngFor="let item of row">
+  <div id="sectionCards" cdkDropList #sectionListItem="cdkDropList" [cdkDropListData]='section'
+    [cdkDropListConnectedTo]='[sectionCard]' (cdkDropListDropped)='drop($event)'>
+    <div class="example-box" cdkDrag>
+      <div id="sectionCards" cdkDropList #rowListItem="cdkDropList" [cdkDropListData]='rowItem'
+        [cdkDropListConnectedTo]='[cardlist]' (cdkDropListDropped)='drop($event)'>
+        <div class="example-box" cdkDrag>
+        </div>
+      </div>
       <!-- <h3>{{item}}</h3> -->
       <app-section-box></app-section-box>
     </div>

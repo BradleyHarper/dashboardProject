@@ -59,7 +59,7 @@ color: rgba(255, 255, 255, 0.322)
     background-color: whitesmoke;
 }
 #sectionCards{
-  background: url("https://c7.alamy.com/comp/DH3TN5/old-lead-letters-forming-the-word-section-DH3TN5.jpg");
+  /* background: url("https://c7.alamy.com/comp/DH3TN5/old-lead-letters-forming-the-word-section-DH3TN5.jpg"); */
   height: 600px;
   padding-top:2px;
 }

@@ -8,11 +8,11 @@ import { CdkDragDrop, moveItemInArray, transferArrayItem, DragDrop } from '@angu
 })
 export class HomeComponent implements OnInit {
 
-  cards = [
-    'section'
-  ];
+  sectionItem = ['section']
+  rowItem = ['row']
+  cardItem = ['cards'];
 
-  row = [];
+  section = [];
 
   constructor() { }
 
@@ -32,6 +32,7 @@ export class HomeComponent implements OnInit {
 
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+
     } else {
       transferArrayItem(event.previousContainer.data,
                         event.container.data,

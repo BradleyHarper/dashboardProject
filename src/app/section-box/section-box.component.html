@@ -12,6 +12,13 @@
       <h3>{{item}}</h3>
     </div>
   </div>
+  <div id="row" cdkDropList #cardlist="cdkDropList" [cdkDropListData]='cards'
+    [cdkDropListConnectedTo]='[rowlist]' (cdkDropListDropped)='drop($event)'>
+    <div class="example-box" cdkDrag *ngFor="let card of cards">
+      <h3>{{cards}}</h3>
+    </div>
+  </div>
+
 </div>
 <h6>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam accusantium illum unde quam excepturi dolore veritatis culpa corporis similique, molestiae incidunt quia ab optio amet laudantium id at. Esse, sunt. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus laudantium, perferendis sit incidunt veritatis similique quibusdam, quaerat architecto amet, dicta quisquam! Doloribus hic officia culpa sit ipsa modi iste eum!</h6>
 
