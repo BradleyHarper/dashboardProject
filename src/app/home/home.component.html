@@ -38,7 +38,7 @@
   <div id="sectionCards" cdkDropList #sectionListItem="cdkDropList" [cdkDropListData]='section'
     [cdkDropListConnectedTo]='[sectionList]' (cdkDropListDropped)='drop($event)'>
     <div class="example-box" cdkDrag *ngFor="let item of section">
-        <h3>Section</h3>
+        <h3>{{item.title}}</h3>
         <!-- <example-selector></example-selector>  with these selector tags will route to new components in which I'll be able to display charting info, api data, and/or directions on where to drag and drop the boxes-->
     </div>
 

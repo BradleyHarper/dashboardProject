@@ -10,7 +10,6 @@
     background: rgba(255, 255, 255, 0.541);
     border-radius: 4px;
     position: relative;
-    z-index: 1;
     transition: box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);
     box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
                 0 2px 2px 0 rgba(0, 0, 0, 0.14),
@@ -24,24 +23,23 @@
     cursor: grabbing;
     transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }
-.example-box.cdk-drag :first-child {
-  height: 100px;
-}
 .cdk-drop-list-dragging{
 color: rgba(255, 255, 255, 0.322)
 }
 #componentBoxes{
     background-color:#45a29e;;
-    width: 12vw;
+    width: 12vh;
     float: right;
     padding: 10px;
+    min-height: 90vh;
 }
-#componentBoxes>.example-box{
+#cdk-drop-list-0>.example-box.cdk-drag{
+  padding: 10px;
     margin-bottom: 8px;
 }
 #display{
   padding: 10px;
-  width: 83vw;
+  width: 89%;
   background: #66fcf1;
   min-height: 90vh
 }
@@ -58,6 +56,9 @@ color: rgba(255, 255, 255, 0.322)
 background-color: lightblue;
 min-height: 80vh;
 padding-top:2px;
+}
+#sectionCards>.example-box.cdk-drag{
+  height: 20vh;
 }
 #sectionColumn{
   display: flex;

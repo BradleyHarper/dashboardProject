@@ -7,7 +7,7 @@ class DashboardSection {
   title: string;
   rows: DashboardRow[];
   constructor(title?: string){
-    if(title){
+    if (title) {
       this.title = title;
     }
   }
@@ -18,7 +18,7 @@ class DashboardRow {
   title: string;
   rows: DashboardCard[];
   constructor(title?: string){
-    if(title){
+    if (title) {
       this.title = title;
     }
   }
@@ -29,7 +29,7 @@ class DashboardCard {
   title: string;
   subtitle: string;
   constructor(title?: string){
-    if(title){
+    if (title) {
       this.title = title;
     }
   }
@@ -43,19 +43,13 @@ class DashboardCard {
 })
 export class HomeComponent implements OnInit {
 
-  sectionItem = ['section', 'section', 'section'];
-  rowItem = ['row', 'row', 'row'];
-  cardItem = ['cards'];
-
   availableCards = [
-    new DashboardSection("section"),
-    new DashboardRow("row"),
-    new DashboardCard("card")
+    new DashboardSection('section'),
+    new DashboardRow('row'),
+    new DashboardCard('card')
   ];
 
   section = [];
-  row = [];
-  card = [];
 
   constructor() {}
 
@@ -77,14 +71,13 @@ export class HomeComponent implements OnInit {
       console.log("Move drop event", event);
 
     } else {
-      const section = new DashboardSection();
-      section.title = event.previousContainer.data[event.previousIndex];
-      console.log(section);
+      // const section = new DashboardSection();
+      // section.title = event.previousContainer.data[event.previousIndex];
+      // console.log(section);
+      // const eventArr = [];
+      // eventArr.push(section);
 
-      const eventArr = [];
-      eventArr.push(section);
-
-      transferArrayItem(eventArr,
+      transferArrayItem(event.previousContainer.data,
                         event.container.data,
                         event.previousIndex,
                         event.currentIndex);
