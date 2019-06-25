@@ -25,7 +25,7 @@
     transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }
 .example-box.cdk-drag :first-child {
-  height: 300px;
+  height: 100px;
 }
 .cdk-drop-list-dragging{
 color: rgba(255, 255, 255, 0.322)
