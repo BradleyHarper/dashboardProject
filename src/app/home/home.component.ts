@@ -1,12 +1,17 @@
-import { Component, OnInit } from '@angular/core';
-import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
-import { v4 as uuid } from 'uuid';
+import { Component, OnInit } from "@angular/core";
+import {
+  CdkDragDrop,
+  moveItemInArray,
+  transferArrayItem,
+  copyArrayItem
+} from "@angular/cdk/drag-drop";
+import { v4 as uuid } from "uuid";
 
 class DashboardSection {
   id: uuid = uuid();
   title: string;
   rows: DashboardRow[];
-  constructor(title?: string){
+  constructor(title?: string) {
     if (title) {
       this.title = title;
     }
@@ -17,7 +22,7 @@ class DashboardRow {
   id: uuid = uuid();
   title: string;
   rows: DashboardCard[];
-  constructor(title?: string){
+  constructor(title?: string) {
     if (title) {
       this.title = title;
     }
@@ -28,35 +33,32 @@ class DashboardCard {
   id: uuid = uuid();
   title: string;
   subtitle: string;
-  constructor(title?: string){
+  constructor(title?: string) {
     if (title) {
       this.title = title;
     }
   }
 }
 
-
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: "app-home",
+  templateUrl: "./home.component.html",
+  styleUrls: ["./home.component.css"]
 })
 export class HomeComponent implements OnInit {
-
   availableCards = [
-    new DashboardSection('section'),
-    new DashboardRow('row'),
-    new DashboardCard('card')
+    new DashboardSection("section"),
+    new DashboardRow("row"),
+    new DashboardCard("card")
   ];
 
   section = [];
 
   constructor() {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
-  drop(event: CdkDragDrop<string[]>){
+  drop(event: CdkDragDrop<string[]>) {
     // var test = document.getElementsByClassName("cdk-drop-list-receiving");
     // if(test){
     //   document.getElementById("sectionCards").style.backgroundColor = "black";
@@ -67,22 +69,33 @@ export class HomeComponent implements OnInit {
     //  return false;
     // }
     if (event.previousContainer === event.container) {
-      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+      moveItemInArray(
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex
+      );
       console.log("Move drop event", event);
+      // if (event.previousContainer.data === event.container.data) {
+      //   transferArrayItem(
+      //     event.previousContainer.data,
+      //     event.container.data,
+      //     event.previousIndex,
+      //     event.currentIndex
+      //   );
+      //   console.log("transferArrItem", event);
     } else {
       // const section = new DashboardSection();
       // section.title = event.previousContainer.data[event.previousIndex];
       // console.log(section);
       // const eventArr = [];
       // eventArr.push(section);
-
-      transferArrayItem(event.previousContainer.data,
-                        event.container.data,
-                        event.previousIndex,
-                        event.currentIndex);
-      console.log("transfer drop", event)
+      copyArrayItem(
+        event.previousContainer.data,
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex
+      );
+      console.log("copyArrItem drop", event);
     }
   }
 }
-
-
