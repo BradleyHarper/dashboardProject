@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Old+Standard+TT&display=swap');
 .example-box {
     font-family: 'Old Standard TT', serif;
-    border: solid 1px rgba(204, 204, 204, 0.459);
     cursor: grab;
     display: flex;
     justify-content: center;
@@ -26,16 +25,16 @@
 .cdk-drop-list-dragging{
 color: rgba(255, 255, 255, 0.322)
 }
-#componentBoxes{
-    background-color:#45a29e;;
-    width: 12vh;
-    float: right;
-    padding: 10px;
-    min-height: 90vh;
-}
-#cdk-drop-list-0>.example-box.cdk-drag{
+#componentBoxes.cdk-drop-list{
+  background-color:#45a29e;;
+  width: 12vh;
+  float: right;
   padding: 10px;
-    margin-bottom: 8px;
+  min-height: 90vh;
+}
+#cdk-drop-list>.example-box.cdk-drag{
+  padding: 10px;
+  margin-bottom: 8px;
 }
 #display{
   padding: 10px;
@@ -60,8 +59,4 @@ padding-top:2px;
 #sectionCards>.example-box.cdk-drag{
   height: 20vh;
 }
-#sectionColumn{
-  display: flex;
-  justify-content: space-around;
-  min-height: 10vh;
-}
+

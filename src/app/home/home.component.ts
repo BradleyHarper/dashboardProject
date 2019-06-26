@@ -69,7 +69,6 @@ export class HomeComponent implements OnInit {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
       console.log("Move drop event", event);
-
     } else {
       // const section = new DashboardSection();
       // section.title = event.previousContainer.data[event.previousIndex];

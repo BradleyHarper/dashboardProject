@@ -1,8 +1,7 @@
 
 
  <div id="componentsColumn"> <!--all the drop lists in this div are for the right side of the screen, they are the three vertical boxes. I made it this way so each draggable item was able to to have their own cdkDropListData in the typescript file. -->
-  <div id="componentBoxes">
-    <div cdkDropList #sectionList="cdkDropList" [cdkDropListData]='availableCards'
+    <div id="componentBoxes" cdkDropList #sectionList="cdkDropList" [cdkDropListData]='availableCards'
       [cdkDropListConnectedTo]='[sectionListItem]' (cdkDropListDropped)='drop($event)'> <!-- these three divs to the left inside the component box div are the draggable elements as mentioned above, they all enherit a name from the home TS file and drag lists are connected to a nested list system at the bottom-->
       <div class="example-box" cdkDrag *ngFor="let card of availableCards">
         <h3>{{card.title}}</h3>
@@ -20,7 +19,6 @@
         <h3>{{cardItem}}</h3>
       </div>
     </div> -->
-  </div>
   <!-- <div id="rowInSection" cdkDropList #inComponentBoxes="cdkDropList" [cdkDropListData]='rowIns'
     [cdkDropListConnectedTo]='[inSectionBox]' (cdkDropListDropped)='drop($event)'>
     <div class="example-box" cdkDrag *ngFor="let item of cards">
