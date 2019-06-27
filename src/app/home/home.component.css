@@ -2,7 +2,7 @@
 .example-box {
     font-family: 'Old Standard TT', serif;
     cursor: grab;
-    display: flex;
+    /* display: flex; */
     justify-content: center;
     align-items: center;
     text-align: center;

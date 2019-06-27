@@ -64,6 +64,12 @@ export class HomeComponent implements OnInit {
   ngOnInit() {}
 
   drop(event: CdkDragDrop<string[]>) {
+console.log('event = ', event)
+console.log('event.previousContainer.data[event.previousIndex] = ', event.previousContainer.data[event.previousIndex])
+
+
+    const eventValue: any = event.previousContainer.data[event.previousIndex];
+console.log('eventValue = ', eventValue)
     if (event.previousContainer === event.container) {
       moveItemInArray(
         event.container.data,
@@ -71,21 +77,35 @@ export class HomeComponent implements OnInit {
         event.currentIndex
       );
     } else {
-      const section = new DashboardSection();
-      const row = new DashboardRow();
-      const card = new DashboardCard();
       const eventArr = [];
-      section.title = "testing123 -2";
-      section.rows.push(section);
-      section.title = event.previousContainer.data[event.previousIndex];
-      eventArr.push(section);
-      console.log(`${row.rows}: row.rows`);
-      console.log(`${eventArr}: event array`);
-      console.log(`${section.title}: section.title`);
-      console.log(`${section.rows}: section.rows`);
-      console.log(`${eventArr}: event array after section gets pushed to it`);
-      // test1.title = "testing123 -1"
+      if(eventValue instanceof DashboardSection) {
+        const section = new DashboardSection();
+        section.title = event.previousContainer.data[event.previousIndex];
+        eventArr.push(section);
+      }
+      else if(eventValue instanceof DashboardRow) {
+        // Check if dropping it in a section
 
+
+
+        const row = new DashboardRow();
+        row.title = event.previousContainer.data[event.previousIndex];
+        eventArr.push(row);
+      }
+
+
+      // const card = new DashboardCard();
+
+      // section.title = "testing123 -2";
+
+
+
+
+
+      // console.log(`${eventArr}: event array after section gets pushed to it`);
+      // test1.title = "testing123 -1"
+console.log("")
+console.log("")
       copyArrayItem(
         eventArr,
         event.container.data,

@@ -1,25 +1,44 @@
 <div id="componentsColumn">
-  <!--all the drop lists in this div are for the right side of the screen, they are the three vertical boxes. I made it this way so each draggable item was able to to have their own cdkDropListData in the typescript file. -->
   <div id="componentBoxes" cdkDropList #sectionList="cdkDropList" [cdkDropListData]='availableCards'
     [cdkDropListConnectedTo]='[sectionListItem]' (cdkDropListDropped)='drop($event)'>
-    <!-- these three divs to the left inside the component box div are the draggable elements as mentioned above, they all enherit a name from the home TS file and drag lists are connected to a nested list system at the bottom-->
     <div class="example-box" cdkDrag *ngFor="let card of availableCards">
       <h3>{{card.title}}</h3>
     </div>
   </div>
 </div>
 <div id="display">
-  <div id="dropZone" cdkDropList #sectionListItem="cdkDropList" [cdkDropListData]='sections'
-    [cdkDropListConnectedTo]='[sectionListItem]' (cdkDropListDropped)='drop($event)'>
-    <div id="sectionCards " class="example-box" cdkDropList #rowListItem="cdkDropList" *ngFor="let section of sections"
-      [cdkDropListData]='sections' [cdkDropListConnectedTo]='[sectionListItem]' (cdkDropListDropped)='drop($event)'>
+  <div id="dropZone"
+    #sectionListItem="cdkDropList"
+    [cdkDropListData]='sections' cdkDropList
+    (cdkDropListDropped)='drop($event)'
+    [cdkDropListConnectedTo]='[sectionListItem]' >
+
+    <div id="sectionCards " class="example-box"
+      #rowListItem="cdkDropList" *ngFor="let section of sections"
+      [cdkDropListData]='sections' cdkDropList
+      (cdkDropListDropped)='drop($event)'
+      [cdkDropListConnectedTo]='[rowListItem]' >
+      <div><h3>Section {{section.title.title}}</h3></div>
+
       <div id="rowCards">
-        <h3>{{section}} + drag a row here if you'd like!</h3>
-        <div id="rowInSection" *ngFor="let row of rows" cdkDropList [cdkDropListConnectedTo]="sectionListItem"
-          #rowListItem="cdkDropList" [cdkDropListData]='rows' (cdkDropListDropped)='drop($event)'>
-          <h1>{{row}}</h1>
-          <div id="cardInRow" *ngFor="let card of row.cards" cdkDropList [cdkDropListConnectedTo]="rowListItem"
-            #cardListItem="cdkDropList" [cdkDropListData]="cards" (cdkDropListDropped)='drop($event)'>
+        <h3>{{section.title.title}} + drag a row here if you'd like!</h3>
+
+        <div id="rowInSection"
+        #rowListItem="cdkDropList" *ngFor="let row of section.rows"
+        [cdkDropListData]='sections'  cdkDropList
+        [cdkDropListConnectedTo]="sectionListItem"
+        (cdkDropListDropped)='drop($event)'>
+
+          <h1>{{row.title}}</h1>
+
+          <div id="cardInRow"
+          *ngFor="let card of row.cards"
+           cdkDropList
+           [cdkDropListConnectedTo]="rowListItem"
+           #cardListItem="cdkDropList"
+           (cdkDropListDropped)='drop($event)'
+           [cdkDropListData]="cards">
+
             <h1>{{card.title}}</h1>
           </div>
         </div>
