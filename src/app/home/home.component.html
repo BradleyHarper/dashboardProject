@@ -14,10 +14,12 @@
     <div id="sectionCards " class="example-box" cdkDropList #rowListItem="cdkDropList" *ngFor="let section of sections"
       [cdkDropListData]='sections' [cdkDropListConnectedTo]='[sectionListItem]' (cdkDropListDropped)='drop($event)'>
       <div id="rowCards">
-        <h3>{{section.title.title}} + drag a row here if you'd like!</h3>
-        <div *ngFor="let row of section.rows" cdkDropList #rowListItem="cdkDropList" [cdkDropListData]='section.rows'>
-          <h1>{{row.title}}</h1>
-          <div *ngFor="let card of row.cards" cdkDropList #rowListItem="cdkDropList" [cdkDropListData]="row.cards">
+        <h3>{{section}} + drag a row here if you'd like!</h3>
+        <div id="rowInSection" *ngFor="let row of rows" cdkDropList [cdkDropListConnectedTo]="sectionListItem"
+          #rowListItem="cdkDropList" [cdkDropListData]='rows' (cdkDropListDropped)='drop($event)'>
+          <h1>{{row}}</h1>
+          <div id="cardInRow" *ngFor="let card of row.cards" cdkDropList [cdkDropListConnectedTo]="rowListItem"
+            #cardListItem="cdkDropList" [cdkDropListData]="cards" (cdkDropListDropped)='drop($event)'>
             <h1>{{card.title}}</h1>
           </div>
         </div>

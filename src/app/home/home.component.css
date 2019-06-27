@@ -52,9 +52,15 @@ color: rgba(255, 255, 255, 0.322)
     background-color: whitesmoke;
 }
 #dropZone{
-background-color: lightblue;
 min-height: 40vh;
 padding-top:2px;
+width: 85vw;
+}
+rowInSection{
+  height: 40px;
+}
+cardInRow{
+  height: 40px;
 }
 #sectionCards{
   display: flexbox;

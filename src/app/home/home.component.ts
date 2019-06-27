@@ -35,7 +35,7 @@ class DashboardRow {
 class DashboardCard {
   id: uuid = uuid();
   title: string = "";
-  subtitle: string;
+  subtitle?: string;
   constructor(title?: string) {
     if (title) {
       this.title = title;
@@ -75,20 +75,16 @@ export class HomeComponent implements OnInit {
       const row = new DashboardRow();
       const card = new DashboardCard();
       const eventArr = [];
-      section.title = "testing123 -2"
-      section.rows.push(section)
+      section.title = "testing123 -2";
+      section.rows.push(section);
+      section.title = event.previousContainer.data[event.previousIndex];
+      eventArr.push(section);
       console.log(`${row.rows}: row.rows`);
       console.log(`${eventArr}: event array`);
       console.log(`${section.title}: section.title`);
-      section.title = event.previousContainer.data[event.previousIndex];
-      section.rows.push(section.title)
-      eventArr.push(section);
-      console.log(`${section.rows}: section.rows`)
+      console.log(`${section.rows}: section.rows`);
       console.log(`${eventArr}: event array after section gets pushed to it`);
-      console.log(`${DashboardCard.title}`)
       // test1.title = "testing123 -1"
-      // const test2 = new DashboardCard();
-
 
       copyArrayItem(
         eventArr,
