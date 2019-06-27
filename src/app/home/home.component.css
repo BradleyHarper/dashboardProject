@@ -51,12 +51,17 @@ color: rgba(255, 255, 255, 0.322)
     padding: 5px;
     background-color: whitesmoke;
 }
-#sectionCards{
+#dropZone{
 background-color: lightblue;
-min-height: 80vh;
+min-height: 40vh;
 padding-top:2px;
 }
-#sectionCards>.example-box.cdk-drag{
+#sectionCards{
+  display: flexbox;
+flex-direction: column;
+align-items: flex-start;
+}
+#dropZone>.example-box.cdk-drag{
   height: 20vh;
 }
 
